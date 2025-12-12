@@ -62,10 +62,24 @@
         .btn-editar:hover {
             background-color: #45a049;
         }
+        .btn-eliminar {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn-eliminar:hover {
+            background-color: #b71c1c;
+        }
         .buttons {
             margin-top: 20px;
         }
-</head>
+    </style>
 <body>
     <div class="container">
         <h1>Detalle de la Canción</h1>
@@ -97,10 +111,10 @@
         </div>
         
         <a href="/canciones/formulario/editar/${cancion.id}" class="btn-editar">Editar Canción</a>
+        <a href="/canciones/eliminar/${cancion.id}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta canción?');">Eliminar Canción</a>
         <a href="/canciones" class="volver">Volver a lista de canciones</a>
         </div>
     </div>
 </body>
 </html>
-```
 
