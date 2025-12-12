@@ -4,13 +4,17 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "canciones")
@@ -23,8 +27,9 @@ public class Cancion {
     @Size(min = 5, message = "El título debe tener al menos 5 caracteres")
     private String titulo;
 
-    @Size(min = 3, message = "El artista debe tener al menos 3 caracteres")
-    private String artista;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "artista_id")
+    private Artista artista;
 
     @Size(min = 3, message = "El álbum debe tener al menos 3 caracteres")
     private String album;
@@ -69,13 +74,15 @@ public class Cancion {
         this.titulo = titulo;
     }
 
-    public String getArtista() {
-        return artista;
-    }
+    public Artista getArtista() {
+    return artista;
+}
 
-    public void setArtista(String artista) {
-        this.artista = artista;
-    }
+public void setArtista(Artista artista) {
+    this.artista = artista;
+}
+
+
 
     public String getAlbum() {
         return album;
