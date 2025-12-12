@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.romina.modelos.Cancion;
 import com.romina.servicios.ServicioCanciones;
 
@@ -20,8 +22,15 @@ public class ControladorCanciones {
     private ServicioCanciones servicioCanciones;
 
     @GetMapping("/")
+    @ResponseBody
     public String index() {
-        return "redirect:/canciones";
+        return "<html><body><h1>¡Bienvenido!</h1><p><a href='/canciones'>Ver canciones</a></p></body></html>";
+    }
+    
+    @GetMapping("/health")
+    @ResponseBody
+    public String health() {
+        return "OK - La aplicación está funcionando";
     }
     
     @GetMapping("/canciones")
