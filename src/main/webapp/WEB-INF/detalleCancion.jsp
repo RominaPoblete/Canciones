@@ -48,7 +48,23 @@
         .volver:hover {
             background-color: #764ba2;
         }
-    </style>
+        .btn-editar {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn-editar:hover {
+            background-color: #45a049;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
 </head>
 <body>
     <div class="container">
@@ -80,6 +96,7 @@
             <strong>Fecha de Actualización:</strong> ${cancion.fechaActualizacion}
         </div>
         
+        <a href="/canciones/formulario/editar/${cancion.id}" class="btn-editar">Editar Canción</a>
         <a href="/canciones" class="volver">Volver a lista de canciones</a>
         </div>
     </div>
